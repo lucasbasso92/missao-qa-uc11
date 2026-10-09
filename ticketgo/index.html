@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>TicketGo | Cinema do seu jeito</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand" aria-label="TicketGo">
+      <div class="brand-mark">TG</div>
+      <div class="brand-copy"><strong>TicketGo</strong><span>cinema & ingressos</span></div>
+    </div>
+
+    <nav class="nav-links" aria-label="Navegação principal">
+      <button class="nav-link" data-scroll="filmes">Filmes</button>
+      <button class="nav-link" data-scroll="cinemas">Cinemas</button>
+      <button class="nav-link" id="ticketsButton">Meus ingressos</button>
+    </nav>
+
+    <div class="header-actions">
+      <button class="city-btn" id="cityButton">📍 Araraquara - SP</button>
+      <button class="account-btn" id="loginButton"><span id="welcomeText">Entrar</span></button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-overlay"></div>
+      <div class="hero-content">
+        <span class="eyebrow">CINEMA SEM FILA</span>
+        <h1>Seu próximo filme<br><span>começa aqui.</span></h1>
+        <p>Escolha o filme, a sessão e compre seu ingresso em poucos passos.</p>
+        <button class="primary-btn" data-scroll="filmes">Ver programação</button>
+      </div>
+      <div class="hero-ticket" aria-hidden="true">
+        <div class="ticket-stub">
+          <span>TICKETGO</span>
+          <strong>20:40</strong>
+          <small>SALA 04 • ARARAQUARA</small>
+        </div>
+      </div>
+    </section>
+
+    <section class="search-strip" id="cinemas">
+      <div class="search-cell">
+        <span class="label">Cidade</span>
+        <select id="citySelect">
+          <option>Araraquara - SP</option>
+          <option>São Carlos - SP</option>
+          <option>Ribeirão Preto - SP</option>
+        </select>
+      </div>
+      <div class="search-cell">
+        <span class="label">Cinema</span>
+        <select id="cinemaSelect">
+          <option value="Todos">Todos os cinemas</option>
+          <option value="Cine Center">Cine Center</option>
+          <option value="Movie Park">Movie Park</option>
+        </select>
+      </div>
+      <div class="search-cell">
+        <span class="label">Data</span>
+        <select id="dateSelect">
+          <option>Hoje</option>
+          <option>Amanhã</option>
+          <option>Sábado</option>
+        </select>
+      </div>
+      <button class="search-btn" id="filterButton">Buscar sessões</button>
+    </section>
+
+    <section class="section" id="filmes">
+      <div class="section-heading">
+        <div>
+          <span class="eyebrow dark">EM CARTAZ</span>
+          <h2>Escolha seu filme</h2>
+          <p>Programação disponível nos cinemas parceiros.</p>
+        </div>
+        <div class="chips" id="genreChips">
+          <button class="chip active" data-genre="Todos">Todos</button>
+          <button class="chip" data-genre="Aventura">Aventura</button>
+          <button class="chip" data-genre="Comédia">Comédia</button>
+          <button class="chip" data-genre="Animação">Animação</button>
+          <button class="chip" data-genre="Suspense">Suspense</button>
+        </div>
+      </div>
+      <div class="movie-grid" id="movieGrid"></div>
+    </section>
+
+    <section class="section benefits">
+      <div class="benefit">
+        <span>🎟️</span><div><strong>Compra simples</strong><p>Escolha e confirme sem enfrentar fila.</p></div>
+      </div>
+      <div class="benefit">
+        <span>📱</span><div><strong>Ingresso digital</strong><p>Consulte suas compras na área do cliente.</p></div>
+      </div>
+      <div class="benefit">
+        <span>🔒</span><div><strong>Fluxo seguro</strong><p>Seus dados de teste ficam apenas neste navegador.</p></div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="brand footer-brand"><div class="brand-mark">TG</div><div class="brand-copy"><strong>TicketGo</strong><span>cinema & ingressos</span></div></div>
+    <p>Projeto demonstrativo para atividade educacional de testes de software.</p>
+  </footer>
+
+  <div class="overlay hidden" id="overlay"></div>
+
+  <section class="modal hidden" id="loginModal" aria-modal="true" role="dialog" aria-labelledby="loginTitle">
+    <button class="close-btn" data-close="loginModal" aria-label="Fechar">×</button>
+    <span class="eyebrow dark">MINHA CONTA</span>
+    <h2 id="loginTitle">Entrar no TicketGo</h2>
+    <p class="muted">Acesse para comprar e consultar seus ingressos.</p>
+    <form id="loginForm">
+      <label for="email">E-mail</label>
+      <input id="email" name="email" type="email" autocomplete="username" placeholder="seu@email.com" required />
+      <label for="password">Senha</label>
+      <input id="password" name="password" type="password" autocomplete="current-password" placeholder="Digite sua senha" required />
+      <button class="primary-btn full" id="loginSubmit" type="submit">Entrar</button>
+      <p class="form-message" id="loginMessage" aria-live="polite"></p>
+    </form>
+  </section>
+
+  <section class="modal purchase-modal hidden" id="purchaseModal" aria-modal="true" role="dialog" aria-labelledby="purchaseTitle">
+    <button class="close-btn" data-close="purchaseModal" aria-label="Fechar">×</button>
+    <div id="purchaseContent"></div>
+  </section>
+
+  <section class="modal tickets-modal hidden" id="ticketsModal" aria-modal="true" role="dialog" aria-labelledby="ticketsTitle">
+    <button class="close-btn" data-close="ticketsModal" aria-label="Fechar">×</button>
+    <span class="eyebrow dark">MINHA CONTA</span>
+    <h2 id="ticketsTitle">Meus ingressos</h2>
+    <p class="muted">Compras aprovadas devem aparecer aqui.</p>
+    <div id="ticketsList"></div>
+  </section>
+
+  <div class="toast hidden" id="toast" role="status"></div>
+
+  <script src="app.js"></script>
+</body>
+</html>

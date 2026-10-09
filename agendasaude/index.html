@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>AgendaSaúde | Cuidado perto de você</title>
+  <meta name="description" content="Plataforma fictícia de agendamento de consultas para atividade de testes de software." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="container header-inner">
+      <a class="brand" href="#inicio" aria-label="AgendaSaúde - início">
+        <span class="brand-icon" aria-hidden="true">
+          <svg viewBox="0 0 64 64"><path d="M32 55C13 43 5 33 5 21 5 11 12 5 21 5c6 0 10 3 11 7 2-4 6-7 12-7 9 0 15 7 15 16 0 12-9 23-27 34Z" fill="currentColor"/><path d="M18 31h9l4-10 5 20 4-10h8" fill="none" stroke="white" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>
+        <span class="brand-copy"><strong>Agenda</strong><b>Saúde</b><small>cuidar ficou simples</small></span>
+      </a>
+
+      <nav class="nav" aria-label="Menu principal">
+        <button data-scroll="especialidades">Medicina</button>
+        <button data-scroll="odontologia">Odontologia</button>
+        <button data-scroll="exames">Exames</button>
+        <button data-scroll="unidades">Unidades</button>
+      </nav>
+
+      <div class="header-actions">
+        <button class="outline-btn" id="appointmentsButton">Minhas consultas</button>
+        <button class="patient-btn" id="loginButton"><span class="user-dot">●</span><span id="welcomeText">Portal do paciente</span></button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="inicio">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <span class="kicker">SAÚDE PARA TODOS</span>
+          <h1>Cuidar de você ficou <span>mais simples.</span></h1>
+          <p>Consultas acessíveis, profissionais qualificados e agendamento rápido em poucos passos.</p>
+          <div class="hero-actions">
+            <button class="primary-btn" id="heroScheduleButton">Agendar consulta</button>
+            <button class="text-btn" data-scroll="especialidades">Conhecer especialidades →</button>
+          </div>
+          <div class="trust-row">
+            <div><strong>+30</strong><span>especialidades</span></div>
+            <div><strong>4</strong><span>unidades na região</span></div>
+            <div><strong>Online</strong><span>agendamento 24h</span></div>
+          </div>
+        </div>
+        <div class="hero-visual" aria-hidden="true">
+          <div class="blob"></div>
+          <div class="doctor-card">
+            <img src="assets/doctor-hero.svg" alt="" />
+            <div class="floating-card fc-one"><span>✓</span><div><strong>Consulta agendada</strong><small>Confirmação imediata</small></div></div>
+            <div class="floating-card fc-two"><span>♡</span><div><strong>Cuidado de verdade</strong><small>Profissionais selecionados</small></div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="steps-section">
+      <div class="container">
+        <div class="section-heading compact"><span>COMO FUNCIONA</span><h2>Seu atendimento em quatro etapas</h2></div>
+        <div class="steps-grid">
+          <article><div class="step-num">01</div><h3>Agendamento</h3><p>Escolha especialidade, unidade, data e horário.</p></article>
+          <article><div class="step-num">02</div><h3>Acolhimento</h3><p>Confira seus dados e prepare-se para a consulta.</p></article>
+          <article><div class="step-num">03</div><h3>Atendimento</h3><p>Compareça à unidade no dia e horário escolhidos.</p></article>
+          <article><div class="step-num">04</div><h3>Pós-consulta</h3><p>Acompanhe suas consultas e próximos cuidados.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="specialties-section" id="especialidades">
+      <div class="container">
+        <div class="section-heading"><div><span>ÁREAS DE ATUAÇÃO</span><h2>Encontre o cuidado que você precisa</h2></div><button class="secondary-btn" id="scheduleTopButton">Agendar consulta</button></div>
+        <div class="specialties-grid" id="specialtiesGrid"></div>
+      </div>
+    </section>
+
+    <section class="banner-section" id="odontologia">
+      <div class="container banner-card">
+        <div><span class="kicker light">ODONTOLOGIA</span><h2>Seu sorriso também merece cuidado.</h2><p>Avaliação, prevenção e tratamentos em um só lugar.</p><button class="white-btn" data-specialty="Odontologia">Agendar avaliação</button></div>
+        <img src="assets/dental.svg" alt="Ilustração de atendimento odontológico" />
+      </div>
+    </section>
+
+    <section class="exam-section" id="exames">
+      <div class="container exam-grid">
+        <div class="exam-art"><img src="assets/exams.svg" alt="Ilustração de exames" /></div>
+        <div><span class="kicker">EXAMES E PROCEDIMENTOS</span><h2>Mais praticidade para cuidar da saúde.</h2><p>Consulte orientações e encontre a unidade mais adequada para seus exames.</p><div class="check-list"><span>✓ Informações claras</span><span>✓ Unidades próximas</span><span>✓ Atendimento acessível</span></div></div>
+      </div>
+    </section>
+
+    <section class="units-section" id="unidades">
+      <div class="container">
+        <div class="section-heading compact"><span>UNIDADES</span><h2>Atendimento perto de você</h2></div>
+        <div class="units-grid">
+          <article><span>ARARAQUARA</span><h3>Centro</h3><p>Av. Brasil, 842 • Centro</p><small>Seg–Sex 07h–18h • Sáb 08h–12h</small></article>
+          <article><span>ARARAQUARA</span><h3>Vila Xavier</h3><p>Rua Bahia, 315 • Vila Xavier</p><small>Seg–Sex 07h–18h • Sáb 08h–12h</small></article>
+          <article><span>AMÉRICO BRASILIENSE</span><h3>Centro</h3><p>Rua Nove de Julho, 126</p><small>Seg–Sex 08h–18h • Sáb 08h–12h</small></article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-grid"><div class="footer-brand">AgendaSaúde <span>♡</span></div><div>Medicina • Odontologia • Exames • Unidades</div><div>Plataforma fictícia para atividade educacional.</div></div>
+  </footer>
+
+  <div class="overlay hidden" id="overlay"></div>
+
+  <section class="modal hidden" id="loginModal" role="dialog" aria-modal="true" aria-labelledby="loginTitle">
+    <button class="modal-close" data-close="loginModal" aria-label="Fechar">×</button>
+    <div class="modal-brand"><span class="mini-heart">♥</span> Portal do paciente</div>
+    <h2 id="loginTitle">Entre na sua conta</h2>
+    <p class="muted">Acesse seus agendamentos e informações.</p>
+    <form id="loginForm">
+      <label>E-mail<input id="email" type="email" autocomplete="username" placeholder="seuemail@exemplo.com" required></label>
+      <label>Senha<input id="password" type="password" autocomplete="current-password" placeholder="Digite sua senha" required></label>
+      <p class="form-error" id="loginMessage"></p>
+      <button class="primary-btn full" id="loginSubmit" type="submit">Entrar</button>
+    </form>
+  </section>
+
+  <section class="modal booking-modal hidden" id="bookingModal" role="dialog" aria-modal="true" aria-labelledby="bookingTitle">
+    <button class="modal-close" data-close="bookingModal" aria-label="Fechar">×</button>
+    <div class="booking-shell">
+      <div class="booking-head">
+        <div><span class="kicker">AGENDAMENTO</span><h2 id="bookingTitle">Marque sua consulta</h2><p>Escolha as opções abaixo para encontrar um horário.</p></div>
+        <div class="progress"><span class="active"></span><span></span><span></span></div>
+      </div>
+      <div class="booking-grid">
+        <div class="booking-fields">
+          <label>Unidade<select id="unitSelect"></select></label>
+          <label>Especialidade<select id="specialtySelect"></select></label>
+          <label>Profissional<select id="doctorSelect"></select></label>
+          <label>Data<input id="dateInput" type="date"></label>
+          <div class="field-group"><span class="field-label">Horário</span><div class="slots" id="slots"></div></div>
+          <p class="form-error" id="bookingError"></p>
+        </div>
+        <aside class="booking-summary">
+          <span class="summary-label">RESUMO</span>
+          <h3>Sua consulta</h3>
+          <div id="summaryContent" class="summary-content">Escolha uma especialidade, data e horário.</div>
+          <button class="primary-btn full" id="confirmBooking">Confirmar agendamento</button>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <section class="modal appointments-modal hidden" id="appointmentsModal" role="dialog" aria-modal="true" aria-labelledby="appointmentsTitle">
+    <button class="modal-close" data-close="appointmentsModal" aria-label="Fechar">×</button>
+    <div class="modal-brand"><span class="mini-heart">♥</span> Área do paciente</div>
+    <h2 id="appointmentsTitle">Minhas consultas</h2>
+    <p class="muted">Acompanhe seus próximos atendimentos.</p>
+    <div id="appointmentsList" class="appointments-list"></div>
+  </section>
+
+  <div class="toast hidden" id="toast"></div>
+  <script src="app.js"></script>
+</body>
+</html>

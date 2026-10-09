@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>FoodNow | Peça do seu jeito</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand" aria-label="FoodNow">
+      <div class="brand-mark">FN</div>
+      <span>FoodNow</span>
+    </div>
+    <nav class="nav-links" aria-label="Navegação principal">
+      <button class="nav-link" data-scroll="menu">Cardápio</button>
+      <button class="nav-link" data-scroll="ofertas">Ofertas</button>
+      <button class="nav-link" id="ordersButton">Meus pedidos</button>
+    </nav>
+    <div class="header-actions">
+      <button class="location-btn" id="locationButton">📍 Araraquara - SP</button>
+      <button class="account-btn" id="loginButton"><span id="welcomeText">Entrar</span></button>
+      <button class="cart-btn" id="cartButton">🛒 <span id="cartCount">0</span></button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-copy">
+        <span class="eyebrow">FOODNOW DELIVERY</span>
+        <h1>Seu pedido, <span>do seu jeito.</span></h1>
+        <p>Escolha, personalize e acompanhe seu pedido em poucos cliques.</p>
+        <button class="primary-btn" data-scroll="menu">Ver cardápio</button>
+      </div>
+      <div class="hero-art" aria-hidden="true">
+        <img src="assets/combo.svg" alt="" />
+      </div>
+    </section>
+
+    <section class="quick-strip">
+      <div><strong>Entrega rápida</strong><span>acompanhe seu pedido</span></div>
+      <div><strong>Monte do seu jeito</strong><span>personalize os lanches</span></div>
+      <div><strong>Pedido mínimo</strong><span>R$ 25,00 para finalizar</span></div>
+    </section>
+
+    <section class="section" id="ofertas">
+      <div class="section-heading">
+        <div>
+          <span class="eyebrow dark">DESTAQUES</span>
+          <h2>Ofertas para matar a fome</h2>
+        </div>
+      </div>
+      <div class="promo-grid">
+        <article class="promo promo-yellow">
+          <div>
+            <span>OFERTA DO DIA</span>
+            <h3>Combo Duplo Bacon</h3>
+            <p>Sanduíche, batata média e bebida.</p>
+          </div>
+          <strong>R$ 32,90</strong>
+        </article>
+        <article class="promo promo-red">
+          <div>
+            <span>PARA COMPARTILHAR</span>
+            <h3>20 Nuggets + 2 molhos</h3>
+            <p>Crocantes por fora, macios por dentro.</p>
+          </div>
+          <strong>R$ 29,90</strong>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="menu">
+      <div class="section-heading menu-heading">
+        <div>
+          <span class="eyebrow dark">CARDÁPIO</span>
+          <h2>Escolha o que vai pedir</h2>
+        </div>
+        <div class="category-chips" id="categoryChips">
+          <button class="chip active" data-category="Todos">Todos</button>
+          <button class="chip" data-category="Sanduíches">Sanduíches</button>
+          <button class="chip" data-category="Acompanhamentos">Acompanhamentos</button>
+          <button class="chip" data-category="Bebidas">Bebidas</button>
+          <button class="chip" data-category="Sobremesas">Sobremesas</button>
+        </div>
+      </div>
+      <div class="product-grid" id="productGrid"></div>
+    </section>
+
+    <section class="section how-it-works">
+      <span class="eyebrow dark">COMO FUNCIONA</span>
+      <h2>Do cardápio até você</h2>
+      <div class="steps">
+        <div><b>1</b><strong>Escolha</strong><span>Selecione seus produtos.</span></div>
+        <div><b>2</b><strong>Personalize</strong><span>Ajuste seu lanche.</span></div>
+        <div><b>3</b><strong>Confira</strong><span>Revise o carrinho.</span></div>
+        <div><b>4</b><strong>Finalize</strong><span>Confirme seu pedido.</span></div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="brand footer-brand"><div class="brand-mark">FN</div><span>FoodNow</span></div>
+    <p>Projeto demonstrativo para atividade educacional de testes de software.</p>
+  </footer>
+
+  <div class="overlay hidden" id="overlay"></div>
+
+  <section class="modal hidden" id="loginModal" aria-modal="true" role="dialog" aria-labelledby="loginTitle">
+    <button class="close-btn" data-close="loginModal" aria-label="Fechar">×</button>
+    <span class="eyebrow dark">MINHA CONTA</span>
+    <h2 id="loginTitle">Entrar no FoodNow</h2>
+    <p class="muted">Acesse para consultar seus pedidos.</p>
+    <form id="loginForm">
+      <label for="email">E-mail</label>
+      <input id="email" name="email" type="email" autocomplete="username" placeholder="seu@email.com" required />
+      <label for="password">Senha</label>
+      <input id="password" name="password" type="password" autocomplete="current-password" placeholder="Digite sua senha" required />
+      <button class="primary-btn full" id="loginSubmit" type="submit">Entrar</button>
+      <p class="form-message" id="loginMessage" aria-live="polite"></p>
+    </form>
+  </section>
+
+  <section class="modal product-modal hidden" id="customizeModal" aria-modal="true" role="dialog" aria-labelledby="customizeTitle">
+    <button class="close-btn" data-close="customizeModal" aria-label="Fechar">×</button>
+    <div id="customizeContent"></div>
+  </section>
+
+  <aside class="drawer hidden" id="cartDrawer" aria-labelledby="cartTitle">
+    <div class="drawer-head">
+      <div><span class="eyebrow dark">SEU PEDIDO</span><h2 id="cartTitle">Carrinho</h2></div>
+      <button class="close-btn static" data-close="cartDrawer" aria-label="Fechar">×</button>
+    </div>
+    <div class="cart-items" id="cartItems"></div>
+    <div class="cart-summary">
+      <div><span>Subtotal</span><strong id="cartSubtotal">R$ 0,00</strong></div>
+      <small>Pedido mínimo para finalizar: R$ 25,00</small>
+      <button class="primary-btn full" id="checkoutButton">Finalizar pedido</button>
+      <button class="text-btn" id="clearCartButton">Limpar carrinho</button>
+      <p class="form-message" id="checkoutMessage" aria-live="polite"></p>
+    </div>
+  </aside>
+
+  <section class="modal orders-modal hidden" id="ordersModal" aria-modal="true" role="dialog" aria-labelledby="ordersTitle">
+    <button class="close-btn" data-close="ordersModal" aria-label="Fechar">×</button>
+    <span class="eyebrow dark">HISTÓRICO</span>
+    <h2 id="ordersTitle">Meus pedidos</h2>
+    <div id="ordersList"></div>
+  </section>
+
+  <div class="toast hidden" id="toast" role="status"></div>
+
+  <script src="app.js"></script>
+</body>
+</html>

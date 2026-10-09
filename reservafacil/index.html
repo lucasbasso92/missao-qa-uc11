@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="ReservaFácil - encontre e reserve sua hospedagem." />
+  <title>ReservaFácil | Hospedagens</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="brand" href="#inicio" aria-label="ReservaFácil - início">Reserva<span>Fácil</span></a>
+      <nav class="top-actions" aria-label="Navegação principal">
+        <button class="nav-link active" data-scroll="inicio">Hospedagens</button>
+        <button class="nav-link" data-scroll="ofertas">Ofertas</button>
+        <button class="nav-link" id="my-reservations-top">Minhas reservas</button>
+        <button class="outline-btn" id="open-login">Entrar</button>
+        <button class="user-chip hidden" id="user-menu" type="button" aria-label="Usuário conectado">
+          <span class="avatar">AQ</span>
+          <span id="user-name">Aluno QA</span>
+          <span class="chevron">▾</span>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="inicio">
+      <div class="hero-inner">
+        <p class="eyebrow">Hospedagens para cada tipo de viagem</p>
+        <h1>Encontre seu próximo lugar para ficar</h1>
+        <p class="hero-subtitle">Pesquise hotéis, compare opções e faça sua reserva em poucos passos.</p>
+
+        <div class="search-shell" aria-label="Pesquisa de hospedagens">
+          <label class="search-field destination-field">
+            <span class="field-label">Destino</span>
+            <span class="field-row"><span class="icon">⌖</span><input id="destination" list="destinations" type="text" placeholder="Para onde você vai?" autocomplete="off" /></span>
+          </label>
+          <datalist id="destinations">
+            <option value="São Paulo"></option>
+            <option value="Santos"></option>
+            <option value="Ubatuba"></option>
+            <option value="Campos do Jordão"></option>
+          </datalist>
+
+          <label class="search-field">
+            <span class="field-label">Entrada</span>
+            <span class="field-row"><span class="icon">▣</span><input id="checkin" type="date" /></span>
+          </label>
+
+          <label class="search-field">
+            <span class="field-label">Saída</span>
+            <span class="field-row"><span class="icon">▣</span><input id="checkout" type="date" /></span>
+          </label>
+
+          <button class="search-field guests-trigger" id="open-guests" type="button" aria-expanded="false">
+            <span class="field-label">Hóspedes e quartos</span>
+            <span class="field-row"><span class="icon">♙</span><span id="guests-summary">2 adultos · 0 crianças · 1 quarto</span></span>
+          </button>
+
+          <button class="search-btn" id="search-btn" type="button">Pesquisar</button>
+
+          <div class="guests-panel hidden" id="guests-panel">
+            <div class="counter-row">
+              <div><strong>Adultos</strong><small>18 anos ou mais</small></div>
+              <div class="counter"><button type="button" data-counter="adults" data-dir="-1">−</button><span id="adults-value">2</span><button type="button" data-counter="adults" data-dir="1">+</button></div>
+            </div>
+            <div class="counter-row">
+              <div><strong>Crianças</strong><small>0 a 17 anos</small></div>
+              <div class="counter"><button type="button" data-counter="children" data-dir="-1">−</button><span id="children-value">0</span><button type="button" data-counter="children" data-dir="1">+</button></div>
+            </div>
+            <div id="child-ages" class="child-ages"></div>
+            <div class="counter-row">
+              <div><strong>Quartos</strong></div>
+              <div class="counter"><button type="button" data-counter="rooms" data-dir="-1">−</button><span id="rooms-value">1</span><button type="button" data-counter="rooms" data-dir="1">+</button></div>
+            </div>
+            <button class="done-btn" id="close-guests" type="button">Concluir</button>
+          </div>
+        </div>
+        <div class="search-message hidden" id="search-message" role="alert"></div>
+      </div>
+    </section>
+
+    <section class="section offers" id="ofertas">
+      <div class="section-heading">
+        <div>
+          <p class="section-kicker">OFERTAS</p>
+          <h2>Uma estadia para cada viagem</h2>
+          <p>Opções selecionadas com cancelamento flexível e detalhes transparentes.</p>
+        </div>
+        <span class="status-pill">Disponibilidade atualizada</span>
+      </div>
+
+      <div class="results-meta hidden" id="results-meta">
+        <strong id="results-title"></strong>
+        <span id="results-count"></span>
+      </div>
+
+      <div class="hotel-grid" id="hotel-grid"></div>
+    </section>
+
+    <section class="section reservations hidden" id="reservations-section">
+      <div class="section-heading">
+        <div>
+          <p class="section-kicker">ÁREA DO CLIENTE</p>
+          <h2>Minhas reservas</h2>
+          <p>Consulte as hospedagens confirmadas nesta conta.</p>
+        </div>
+        <button class="secondary-btn" id="back-to-hotels" type="button">Voltar para hospedagens</button>
+      </div>
+      <div id="reservations-list" class="reservations-list"></div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <div><strong>ReservaFácil</strong><span>Projeto demonstrativo para ambiente educacional.</span></div>
+      <div class="footer-links"><span>Privacidade</span><span>Ajuda</span><span>Termos</span></div>
+    </div>
+  </footer>
+
+  <div class="modal hidden" id="login-modal" role="dialog" aria-modal="true" aria-labelledby="login-title">
+    <div class="modal-card small-card">
+      <button class="modal-close" data-close="login-modal" aria-label="Fechar">×</button>
+      <p class="section-kicker">ÁREA DO CLIENTE</p>
+      <h2 id="login-title">Entre na sua conta</h2>
+      <p class="muted">Acesse suas reservas e finalize novas hospedagens.</p>
+      <label class="form-label">E-mail
+        <input id="login-email" type="email" autocomplete="username" placeholder="seuemail@exemplo.com" />
+      </label>
+      <label class="form-label">Senha
+        <input id="login-password" type="password" autocomplete="current-password" placeholder="Digite sua senha" />
+      </label>
+      <div class="error-box hidden" id="login-error" role="alert"></div>
+      <button class="primary-btn full" id="login-submit" type="button">Entrar</button>
+      <p class="helper">Ambiente de demonstração. Utilize os dados de acesso fornecidos pelo professor.</p>
+    </div>
+  </div>
+
+  <div class="modal hidden" id="booking-modal" role="dialog" aria-modal="true" aria-labelledby="booking-title">
+    <div class="modal-card booking-card">
+      <button class="modal-close" data-close="booking-modal" aria-label="Fechar">×</button>
+      <div class="booking-header">
+        <div>
+          <p class="section-kicker">REVISÃO DA RESERVA</p>
+          <h2 id="booking-title">Confirme sua hospedagem</h2>
+        </div>
+        <span class="secure-badge">✓ Ambiente seguro</span>
+      </div>
+      <div id="booking-content"></div>
+    </div>
+  </div>
+
+  <div class="toast hidden" id="toast" role="status"></div>
+  <script src="app.js"></script>
+</body>
+</html>
