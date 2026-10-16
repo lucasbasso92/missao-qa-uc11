@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AutoCar Araraquara | Seminovos e Usados</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <a class="brand" href="#inicio" aria-label="AutoCar - página inicial">
+        <span class="brand-mark">A</span>
+        <span><strong>Auto</strong>Car</span>
+      </a>
+      <nav class="main-nav" aria-label="Menu principal">
+        <a href="#veiculos">Comprar</a>
+        <a href="#simulador">Financiamento</a>
+        <a href="#contato">Fale com a gente</a>
+      </nav>
+      <span class="location-chip">📍 Araraquara - SP</span>
+    </div>
+  </header>
+
+  <main id="inicio">
+    <section class="hero">
+      <div class="container hero-content">
+        <div>
+          <span class="eyebrow">SEMINOVOS E USADOS EM ARARAQUARA</span>
+          <h1>Seu próximo carro pode estar aqui.</h1>
+          <p>Pesquise por marca, preço e câmbio. Compare opções e simule seu financiamento.</p>
+        </div>
+        <div class="hero-stat">
+          <strong>6</strong>
+          <span>veículos em destaque</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="search-wrap" aria-label="Busca de veículos">
+      <div class="container">
+        <div class="search-card">
+          <div class="field field-wide">
+            <label for="searchModel">O que você procura?</label>
+            <input id="searchModel" type="text" placeholder="Ex.: Civic, Onix, Polo..." />
+          </div>
+          <div class="field">
+            <label for="brandFilter">Marca</label>
+            <select id="brandFilter">
+              <option value="todas">Todas as marcas</option>
+              <option value="Chevrolet">Chevrolet</option>
+              <option value="Fiat">Fiat</option>
+              <option value="Honda">Honda</option>
+              <option value="Volkswagen">Volkswagen</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="priceFilter">Preço máximo</label>
+            <select id="priceFilter">
+              <option value="999999">Sem limite</option>
+              <option value="70000">Até R$ 70 mil</option>
+              <option value="80000">Até R$ 80 mil</option>
+              <option value="100000">Até R$ 100 mil</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="gearFilter">Câmbio</label>
+            <select id="gearFilter">
+              <option value="todos">Todos</option>
+              <option value="Automático">Automático</option>
+              <option value="Manual">Manual</option>
+            </select>
+          </div>
+          <button id="searchButton" class="btn btn-primary search-btn" type="button">
+            <span class="btn-label">Buscar veículos</span>
+            <span class="spinner" aria-hidden="true"></span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <section class="vehicles-section" id="veiculos">
+      <div class="container">
+        <div class="section-heading">
+          <div>
+            <span class="eyebrow dark">OFERTAS EM DESTAQUE</span>
+            <h2>Carros encontrados</h2>
+          </div>
+          <p id="resultCount" class="result-count">6 veículos disponíveis</p>
+        </div>
+
+        <div id="emptyState" class="empty-state" hidden>
+          <strong>Nenhum veículo encontrado.</strong>
+          <p>Tente alterar os filtros da sua busca.</p>
+        </div>
+
+        <div id="vehicleGrid" class="vehicle-grid"></div>
+      </div>
+    </section>
+
+    <section class="finance-section" id="simulador">
+      <div class="container finance-layout">
+        <div class="finance-copy">
+          <span class="eyebrow">SIMULE ANTES DE DECIDIR</span>
+          <h2>Simulador de financiamento</h2>
+          <p>Informe o valor do veículo, quanto pretende dar de entrada e escolha o número de parcelas.</p>
+          <div class="finance-note">Simulação simplificada para fins de consulta. Não inclui juros, tarifas ou análise de crédito.</div>
+        </div>
+
+        <div class="finance-card">
+          <div class="finance-fields">
+            <div class="field">
+              <label for="vehicleValue">Valor do veículo (R$)</label>
+              <input id="vehicleValue" type="number" min="0" placeholder="Ex.: 60000" />
+            </div>
+            <div class="field">
+              <label for="downPayment">Entrada (R$)</label>
+              <input id="downPayment" type="number" min="0" placeholder="Ex.: 12000" />
+            </div>
+            <div class="field">
+              <label for="remainingPayment">Valor restante para pagamento</label>
+              <input id="remainingPayment" type="text" placeholder="R$ 0,00" readonly />
+            </div>
+            <div class="field">
+              <label for="installments">Parcelas</label>
+              <select id="installments">
+                <option value="12">12x</option>
+                <option value="24">24x</option>
+                <option value="36">36x</option>
+                <option value="48">48x</option>
+              </select>
+            </div>
+          </div>
+          <button id="calculateButton" class="btn btn-secondary" type="button">Calcular parcela</button>
+          <div id="financeResult" class="finance-result" aria-live="polite">
+            Preencha os valores para realizar uma simulação.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact-section" id="contato">
+      <div class="container contact-layout">
+        <div>
+          <span class="eyebrow dark">GOSTOU DE UM VEÍCULO?</span>
+          <h2>Receba mais informações</h2>
+          <p>Preencha os dados e nossa equipe entrará em contato.</p>
+        </div>
+
+        <form id="interestForm" class="contact-card" novalidate>
+          <div class="form-row">
+            <div class="field">
+              <label for="customerName">Nome</label>
+              <input id="customerName" type="text" placeholder="Seu nome" />
+            </div>
+            <div class="field">
+              <label for="customerEmail">E-mail</label>
+              <input id="customerEmail" type="email" placeholder="seuemail@exemplo.com" />
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="field">
+              <label for="customerPhone">Telefone</label>
+              <input id="customerPhone" type="tel" placeholder="(16) 99999-9999" />
+            </div>
+            <div class="field">
+              <label for="vehicleInterest">Veículo de interesse</label>
+              <select id="vehicleInterest">
+                <option value="">Escolha uma opção</option>
+              </select>
+            </div>
+          </div>
+          <div class="contact-actions">
+            <small>Ao enviar, você concorda em receber contato sobre o veículo selecionado.</small>
+            <button class="btn btn-low-contrast" type="submit">Continuar</button>
+          </div>
+          <div id="formMessage" class="form-message" aria-live="polite"></div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <strong>AutoCar Araraquara</strong>
+      <span>Site demonstrativo para atividade educacional. Fotos: Wikimedia Commons.</span>
+    </div>
+  </footer>
+
+  <div id="detailsModal" class="modal" aria-hidden="true">
+    <div class="modal-backdrop" data-close-modal></div>
+    <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <button class="modal-close" type="button" data-close-modal aria-label="Fechar">×</button>
+      <div id="modalContent"></div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

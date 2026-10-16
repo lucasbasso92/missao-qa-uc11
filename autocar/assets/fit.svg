@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540">
+<defs><linearGradient id="bg" x1="0" x2="1" y1="0" y2="1"><stop offset="0" stop-color="#eef3f7"/><stop offset="1" stop-color="#dce5ec"/></linearGradient><filter id="shadow"><feGaussianBlur stdDeviation="10"/></filter></defs>
+<rect width="960" height="540" fill="url(#bg)"/>
+<ellipse cx="480" cy="415" rx="325" ry="28" fill="#9eabb7" opacity=".28" filter="url(#shadow)"/>
+<path d="M191 347 L243 270 Q263 238 311 225 L486 187 Q542 174 586 203 L684 270 Q724 286 757 326 L789 366 L170 366 Z" fill="#3d78a8" stroke="#255579" stroke-width="8" stroke-linejoin="round"/>
+<path d="M319 237 L477 203 Q525 193 562 218 L634 271 L288 271 Z" fill="#9fc3d9" stroke="#255579" stroke-width="7"/>
+<path d="M477 203 L475 271" stroke="#255579" stroke-width="7"/>
+<path d="M245 291 Q376 304 700 290" fill="none" stroke="#9cc5e3" stroke-width="9" opacity=".85"/>
+<path d="M176 342 Q250 325 284 337" fill="none" stroke="#9cc5e3" stroke-width="12"/>
+<path d="M692 327 Q746 325 780 351" fill="none" stroke="#f3d8a2" stroke-width="12"/>
+<circle cx="304" cy="368" r="64" fill="#252a30"/><circle cx="304" cy="368" r="34" fill="#aab2ba"/><circle cx="304" cy="368" r="14" fill="#4d555e"/>
+<circle cx="673" cy="368" r="64" fill="#252a30"/><circle cx="673" cy="368" r="34" fill="#aab2ba"/><circle cx="673" cy="368" r="14" fill="#4d555e"/>
+<path d="M391 293 L551 293" stroke="#255579" stroke-width="5" opacity=".65"/>
+<rect x="590" y="303" width="49" height="10" rx="5" fill="#255579" opacity=".55"/>
+<text x="72" y="88" fill="#24405c" font-family="Arial, sans-serif" font-size="30" font-weight="700">AutoCar</text>
+<text x="72" y="122" fill="#708195" font-family="Arial, sans-serif" font-size="19">Seminovos • Araraquara - SP</text>
+</svg>
